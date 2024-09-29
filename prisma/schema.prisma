@@ -2,13 +2,10 @@ generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["fullTextSearch"]
 }
-
 datasource db {
   provider = "postgresql"
   url = env("DATABASE_URL")
 }
-
-
 model User {
   id Int @id @default(autoincrement())
   name String?
@@ -18,8 +15,6 @@ model User {
   post Post[]
   comment Comment[]
 }
-
-
 model Post {
   id Int @id @default(autoincrement())
   user User @relation(fields: [user_id] , references: [id] , onDelete:Cascade )
@@ -31,6 +26,14 @@ model Post {
   created_At DateTime @default(now())
 }
 
+// model UserVideo {
+//   id Int @id @default(autoincrement())
+//   user User @relation(fields: [user_id] , references: [id] , onDelete:Cascade)
+//   user_id Int
+//   name String 
+//   video String
+
+// }
 
 model Comment {
   id String @id @default(uuid())
@@ -41,3 +44,4 @@ model Comment {
   comment String
   created_At DateTime @default(now())
 }
+

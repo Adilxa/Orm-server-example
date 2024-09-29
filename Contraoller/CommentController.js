@@ -36,6 +36,7 @@ export const createComment = async (req, res) => {
       comment,
     },
   });
+
   return res.json({ status: 200, data: newComment, msg: "Comment created" });
 };
 
@@ -68,5 +69,6 @@ export const deleteComment = async (req, res) => {
       id: Number(commentId),
     },
   });
+
   return res.json({ status: 200, msg: "Comment deleted" });
 };

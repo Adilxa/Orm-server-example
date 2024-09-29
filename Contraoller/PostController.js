@@ -22,14 +22,15 @@ export const fetchPosts = async (req, res) => {
           user: {
             select: {
               name: true,
+              email: true,
             },
           },
         },
       },
     },
-    orderBy: {
-      id: "desc",
-    },
+    // orderBy: {
+    //   id: "desc",
+    // },
     // where: {
     //   comment_count: {
     //     gt: 1,
